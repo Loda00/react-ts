@@ -21,13 +21,24 @@ module.exports = {
             {
                 test: /\.(js|jsx|ts|tsx)$/,
                 exclude: /node_modules/,
-                use: ['babel-loader', 'ts-loader']
+                use: ['babel-loader', 'awesome-typescript-loader']
             },
-            // {
-            //     test: /\.js$/,
-            //     exclude: /node_modules/,
-            //     use: 'babel-loader'
-            // }
+            {
+                test: /\.html$/,
+                use: 'html-loader'
+            },
+            {
+                test: /\.(css|sass|scss)$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader'
+                ]
+            },
+            {
+                test: /\.(jpg|png|gif|svg)$/,
+                use: 'file-loader'
+            }
         ]
     },
     devtool: 'inline-source-map',
@@ -39,9 +50,10 @@ module.exports = {
     },
     plugins: [
         new cleanWebpackPlugin(['dist']),
-        // new MiniCssExtractPlugin({
-        //     filename: path.resolve(__dirname, 'public/style.css')
-        // })
+        new MiniCssExtractPlugin({
+            // filename: path.resolve(__dirname, 'public/style.css')
+            filename: './public/styles.css'
+        }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'public/index.html')
         })

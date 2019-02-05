@@ -1,19 +1,8 @@
-interface ITest {
-    test1: string
-}
+import * as React from 'react'
+import { render } from 'react-dom'
 
+import App from './components/main/app'
 
-class Test implements ITest {
-
-    test1 = 'Juanito'
-
-    constructor(){
-        this.load()
-    }
-
-    load () {
-        console.log(`asdsad ${this.test1}`)
-    }
-}
-
-new Test()
+render( React.createElement(App) , document.getElementById('app'))
+//NO PUEDO USAR TSX Y QUE A ESTE LO CONTENGA UN JSX O JS
+//TODOS PUEDEN SER TSX MIENTRAS EN EL RENDER USE REACT.CREATEELEMENT

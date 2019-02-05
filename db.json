@@ -1,0 +1,14 @@
+{
+    "data":[
+        {
+            "id": 0,
+            "thing": "mouse",
+            "price": 5
+        },
+        {
+            "id": 1,
+            "thing": "monitor",
+            "price": 90
+        }
+    ]
+}
